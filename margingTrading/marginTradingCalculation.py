@@ -3,6 +3,7 @@
 
     EN - Program used to calculate Margin Trading
     BR - Programa para calcular Margin Trading
+
 '''
 import os
 
