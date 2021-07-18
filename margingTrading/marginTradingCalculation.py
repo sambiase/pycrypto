@@ -69,45 +69,48 @@ if __name__ == '__main__':
     choice = 'S'
 
     while choice == 'S' or choice == 'Y':
+        try:
+            language = int(input('(1) - Portugues\n(2) - English\n--> '))
 
-        language = int(input('(1) - Portugues\n(2) - English\n--> '))
+            if language == 1 or language == 2:
+                if language == 1:  # Portugues
+                    choice = 'S'
+                    while choice.upper() == 'S':
+                        mt_br = Margin_Trading_Calculation_BR()
+                        res = Margin_Trading_Calculation.calculation(None, mt_br.colateral, mt_br.leverage,
+                                                                     mt_br.target,
+                                                                     mt_br.stop_loss)
+                        mt_br.print_calculation_results_br(res)
+                        choice = str(input('\nCalcular novamente? (S) (N)\n--> '))
+                        os.system('cls')
 
-        if language == 1 or language == 2:
-            if language == 1:           # Portugues
-                choice = 'S'
-                while choice.upper() == 'S':
-                    mt_br = Margin_Trading_Calculation_BR()
-                    res = Margin_Trading_Calculation.calculation(None, mt_br.colateral, mt_br.leverage, mt_br.target,
-                                                                 mt_br.stop_loss)
-                    mt_br.print_calculation_results_br(res)
-                    choice = str(input('\nCalcular novamente? (S) (N)\n--> '))
-                    os.system('cls')
+                        if choice.upper() == 'N':
+                            print('\nObrigado por usar o soft MarginTrading :)')
+                        elif choice.upper() == 'S':
+                            pass
+                        else:
+                            print('\nOpcao Invalida :(')
 
-                    if choice.upper() == 'N':
-                        print('\nObrigado por usar o soft MarginTrading :)')
-                    elif choice.upper() == 'S':
-                        pass
-                    else:
-                        print('\nOpcao Invalida :(')
+                elif language == 2:
+                    choice = 'Y'
+                    while choice.upper() == 'Y':
+                        mt_en = Margin_Trading_Calculation_EN()
+                        res = Margin_Trading_Calculation.calculation(None, mt_en.colateral, mt_en.leverage,
+                                                                     mt_en.target,
+                                                                     mt_en.stop_loss)
+                        mt_en.print_calculation_results_en(res)
+                        choice = str(input('\nCalculate again? (Y) (N)\n--> '))
+                        os.system('cls')
 
-            elif language == 2:
-                choice = 'Y'
-                while choice.upper() == 'Y':
-                    mt_en = Margin_Trading_Calculation_EN()
-                    res = Margin_Trading_Calculation.calculation(None, mt_en.colateral, mt_en.leverage, mt_en.target,
-                                                                 mt_en.stop_loss)
-                    mt_en.print_calculation_results_en(res)
-                    choice = str(input('\nCalculate again? (Y) (N)\n--> '))
-                    os.system('cls')
-
-                    if choice.upper() == 'N':
-                        print('\nThanks for using MarginTrading :)')
-                    elif choice.upper() == 'Y':
-                        pass
-                    else:
-                        print('Invalid option :(')
-        else:
+                        if choice.upper() == 'N':
+                            print('\nThanks for using MarginTrading :)')
+                        elif choice.upper() == 'Y':
+                            pass
+                        else:
+                            print('Invalid option :(')
+            else:
+                os.system('cls')
+                print('Opcao Invalida (Invalid option)\n')
+        except:
             os.system('cls')
-            print('Opcao Invalida (Invalid option)\n')
-
-
+            print('Opcao invalida. Por favor tente novamente.\n Invalid option. Please try again.\n')
