@@ -111,6 +111,6 @@ if __name__ == '__main__':
             else:
                 os.system('cls')
                 print('Opcao Invalida (Invalid option)\n')
-        except:
+        except ValueError:
             os.system('cls')
             print('Opcao invalida. Por favor tente novamente.\n Invalid option. Please try again.\n')
