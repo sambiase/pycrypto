@@ -1,5 +1,5 @@
 '''
-    MarginTrading v1.0
+    MarginTrading Calc v1.0
 
     EN - Program used to calculate Margin Trading
     BR - Programa para calcular Margin Trading
@@ -8,7 +8,7 @@
 import os
 
 
-class Margin_Trading_Calculation:
+class MarginTradingCalculation:
 
     def __init__(self):
         pass
@@ -23,7 +23,7 @@ class Margin_Trading_Calculation:
         return borrowed_value, trading_total_value, liquidation_percentage, liquidation_value, profit, loss
 
 
-class Margin_Trading_Calculation_BR:
+class MarginTradingCalculationBR:
 
     def __init__(self):
         self.colateral = float(input('\nValor Colateral: '))
@@ -35,15 +35,15 @@ class Margin_Trading_Calculation_BR:
         os.system('cls')
         print(f'\nValor Colateral: {self.colateral}')
         print(f'Alavancagem (x): {self.leverage}')
-        print(f'\nValor do Emprestimo: {res[0]}')
+        print(f'\nValor do Empréstimo: {res[0]}')
         print(f'Valor Total do Trade: {res[1]}')
-        print(f'Liquidacao (%): {round(res[2] * 100, 2)}')
-        print(f'Valor de Liquidacao: {round(res[3], 2)}')
+        print(f'Liquidação (%): {round(res[2] * 100, 2)}')
+        print(f'Valor de Liquidação: {round(res[3], 2)}')
         print(f'Lucro: {round(res[4], 2)}')
-        print(f'Perda: {round(res[5], 2)}')
+        print(f'Prejuízo: {round(res[5], 2)}')
 
 
-class Margin_Trading_Calculation_EN:
+class MarginTradingCalculationEN:
 
     def __init__(self):
         self.colateral = float(input('\nColateral Value: '))
@@ -78,8 +78,8 @@ if __name__ == '__main__':
                     if language == 1:  # Portugues
                         choice = 'S'
                         while choice.upper() == 'S':
-                            mt_br = Margin_Trading_Calculation_BR()
-                            res = Margin_Trading_Calculation.calculation(None, mt_br.colateral, mt_br.leverage,
+                            mt_br = MarginTradingCalculationBR()
+                            res = MarginTradingCalculationEN.calculation(None, mt_br.colateral, mt_br.leverage,
                                                                          mt_br.target,
                                                                          mt_br.stop_loss)
                             mt_br.print_calculation_results_br(res)
@@ -96,8 +96,8 @@ if __name__ == '__main__':
                     elif language == 2:
                         choice = 'Y'
                         while choice.upper() == 'Y':
-                            mt_en = Margin_Trading_Calculation_EN()
-                            res = Margin_Trading_Calculation.calculation(None, mt_en.colateral, mt_en.leverage,
+                            mt_en = MarginTradingCalculationEN()
+                            res = MarginTradingCalculationEN.calculation(None, mt_en.colateral, mt_en.leverage,
                                                                          mt_en.target,
                                                                          mt_en.stop_loss)
                             mt_en.print_calculation_results_en(res)
