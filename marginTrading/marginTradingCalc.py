@@ -31,7 +31,7 @@ class MarginTradingCalculationBR:
         self.target = float(input('Alvo (%): '))
         self.stop_loss = float(input('Stop (%): '))
 
-    def print_calculation_results_br(self, res):
+    def calc_results_br(self, res):
         os.system('cls')
         print(f'\nValor Colateral: {self.colateral}')
         print(f'Alavancagem (x): {self.leverage}')
@@ -51,7 +51,7 @@ class MarginTradingCalculationEN:
         self.target = float(input('Target (%): '))
         self.stop_loss = float(input('Stop Loss (%): '))
 
-    def print_calculation_results_en(self, res):
+    def calc_results_en(self, res):
         os.system('cls')
         print(f'\nColateral Value: {self.colateral}')
         print(f'Leverage: {self.leverage}')
@@ -79,10 +79,10 @@ if __name__ == '__main__':
                         choice = 'S'
                         while choice.upper() == 'S':
                             mt_br = MarginTradingCalculationBR()
-                            res = MarginTradingCalculationEN.calculation(None, mt_br.colateral, mt_br.leverage,
-                                                                         mt_br.target,
-                                                                         mt_br.stop_loss)
-                            mt_br.print_calculation_results_br(res)
+                            res = MarginTradingCalculation.calculation(None, mt_br.colateral, mt_br.leverage,
+                                                                       mt_br.target,
+                                                                       mt_br.stop_loss)
+                            mt_br.calc_results_br(res)
                             choice = str(input('\nCalcular novamente? (S) (N)\n--> '))
                             os.system('cls')
 
@@ -97,10 +97,10 @@ if __name__ == '__main__':
                         choice = 'Y'
                         while choice.upper() == 'Y':
                             mt_en = MarginTradingCalculationEN()
-                            res = MarginTradingCalculationEN.calculation(None, mt_en.colateral, mt_en.leverage,
-                                                                         mt_en.target,
-                                                                         mt_en.stop_loss)
-                            mt_en.print_calculation_results_en(res)
+                            res = MarginTradingCalculation.calculation(None, mt_en.colateral, mt_en.leverage,
+                                                                       mt_en.target,
+                                                                       mt_en.stop_loss)
+                            mt_en.calc_results_en(res)
                             choice = str(input('\nCalculate again? (Y) (N)\n--> '))
                             os.system('cls')
 

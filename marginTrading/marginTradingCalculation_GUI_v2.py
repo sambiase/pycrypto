@@ -63,14 +63,17 @@ class MarginTradingCalcGui:
         stop_text.pack(side=LEFT)
         stop_input.pack(side=RIGHT, padx=35, pady=15, ipady=3)
 
+        return colateral_input
+
     def res_window(self):
         """
             Window that shows the results of the Margin Calculation
         :return:
         """
+
         res_window = tk.Tk()
         res_window.title('MarginTrading Calc v1 - Results')
-        res_window.configure(bg='black')
+        res_window.configure(bg='#F0B90B')
         res_window.geometry('350x440')
         res_window.resizable(FALSE, FALSE)
         res_window.iconbitmap('CryptoTech_Logo.ico')
@@ -81,7 +84,7 @@ class MarginTradingCalcGui:
         alvo_frame = tk.Frame(res_window)
         stop_frame = tk.Frame(res_window)
 
-        colateral_text = tk.Label(colateral_frame, text='Valor Colateral', width=18, height=2, fg='black', bg='#F0B90B',
+        colateral_text = tk.Label(colateral_frame, text='Valor Colateral', width=18, height=2, fg='white', bg='black',
                                   font='Gotham 15 bold')
 
         colateral_res = tk.Label(colateral_frame, text='', width=18, height=2,bg='white', font='Gotham 13 ')
