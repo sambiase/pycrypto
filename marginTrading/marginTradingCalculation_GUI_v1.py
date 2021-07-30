@@ -1,7 +1,7 @@
 '''
     MarginTrading Calc GUI - Tkinter
 '''
-from tkinter import *
+from tkinter import FALSE, TOP, LEFT, RIGHT
 import tkinter as tk
 
 
