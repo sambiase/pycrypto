@@ -70,7 +70,8 @@ class MarginTradingCalcGui:
                              font='Gotham 15 bold',
                              command=lambda: MarginTradingCalcGui.res_window(None, int(colateral_input.get()),
                                                                              int(leverage_input.get()),
-                                                                             int(target_input.get()),int(stop_input.get())))
+                                                                             int(target_input.get()),
+                                                                             int(stop_input.get())))
 
         top_frame.pack(pady=15)
 
@@ -107,7 +108,8 @@ class MarginTradingCalcGui:
         res_window.resizable(FALSE, FALSE)
         res_window.iconbitmap('CryptoTech_Logo.ico')
 
-        calc_results = MarginTradingCalcGui.mt_calculation(None,colateral_input,alavancagem_input,target_input,stop_input)
+        calc_results = MarginTradingCalcGui.mt_calculation(None, colateral_input, alavancagem_input, target_input,
+                                                           stop_input)
 
         top_frame = tk.Frame(res_window)
         colateral_frame = tk.Frame(res_window, bg='black')
@@ -138,17 +140,20 @@ class MarginTradingCalcGui:
                                           bg='#F0B90B',
                                           font='Gotham 14 bold')
 
-        trade_total_value_res = tk.Label(trade_total_value_frame, text=f'{calc_results[1]}', width=18, bg='white', font='Gotham 13')
+        trade_total_value_res = tk.Label(trade_total_value_frame, text=f'{calc_results[1]}', width=18, bg='white',
+                                         font='Gotham 13')
 
         liquidation_percent_text = tk.Label(liquidation_percent_frame, text='Liquidação (%)', width=18, fg='black',
                                             bg='#F0B90B', font='Gotham 14 bold')
 
-        liquidation_percent_res = tk.Label(liquidation_percent_frame, text=f'{round(calc_results[2] * 100, 2)}', width=18, bg='white', font='Gotham 13')
+        liquidation_percent_res = tk.Label(liquidation_percent_frame, text=f'{round(calc_results[2] * 100, 2)}',
+                                           width=18, bg='white', font='Gotham 13')
 
         liquidation_value_text = tk.Label(liquidation_value_frame, text='Valor de Liquidação', width=18, fg='black',
                                           bg='#F0B90B', font='Gotham 14 bold')
 
-        liquidation_value_res = tk.Label(liquidation_value_frame, text=f'{round(calc_results[3], 2)}', width=18, bg='white', font='Gotham 13')
+        liquidation_value_res = tk.Label(liquidation_value_frame, text=f'{round(calc_results[3], 2)}', width=18,
+                                         bg='white', font='Gotham 13')
 
         profit_text = tk.Label(profit_frame, text='Lucro', width=18, fg='black', bg='#F0B90B', font='Gotham 14 bold')
 
