@@ -1,7 +1,7 @@
 '''
     MarginTrading Calc GUI - Tkinter
 '''
-from tkinter import FALSE, TOP, LEFT, RIGHT, messagebox
+from tkinter import FALSE, TOP, LEFT, RIGHT
 import tkinter as tk
 
 
@@ -67,11 +67,11 @@ class MarginTradingCalcGui:
         stop_input = tk.Entry(stop_frame, bg='white', font='Gotham 13 ')
 
         calc_btn = tk.Button(calc_btn_frame, text='Calcular', width=10, height=1, fg='black', bg='#F0B90B',
-                             font='Gotham 15 bold', command=lambda: MarginTradingCalcGui.res_window(None,
-                                                                                                    int(colateral_input.get()),
-                                                                                                    int(leverage_input.get()),
-                                                                                                    int(target_input.get()),
-                                                                                                    int(stop_input.get())))
+                             font='Gotham 15 bold',
+                             command=lambda: MarginTradingCalcGui.res_window(None, int(colateral_input.get()),
+                                                                             int(leverage_input.get()),
+                                                                             int(target_input.get()),
+                                                                             int(stop_input.get())))
 
         top_frame.pack(pady=15)
 
