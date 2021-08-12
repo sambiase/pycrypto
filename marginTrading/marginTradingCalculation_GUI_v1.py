@@ -68,7 +68,7 @@ class MarginTradingCalcGui:
 
         calc_btn = tk.Button(calc_btn_frame, text='Calcular', width=10, height=1, fg='black', bg='#F0B90B',
                              font='Gotham 15 bold',
-                             command=lambda: MarginTradingCalcGui.res_window(None, int(colateral_input.get()),
+                             command=lambda: MarginTradingCalcGui.verify_input(None, int(colateral_input.get()),
                                                                              int(leverage_input.get()),
                                                                              int(target_input.get()),
                                                                              int(stop_input.get())))
@@ -95,7 +95,13 @@ class MarginTradingCalcGui:
 
         calc_btn.pack()
 
-    def res_window(self, colateral_input, alavancagem_input, target_input, stop_input):
+    @classmethod
+    def verify_input(self, colateral_input, leverage_input, target_input, stop_input):
+        print(colateral_input)
+
+
+
+    def res_window(self, colateral_input, leverage_input, target_input, stop_input):
         """
             Window that shows the results of the Margin Calculation
         :return:
@@ -108,7 +114,7 @@ class MarginTradingCalcGui:
         res_window.resizable(FALSE, FALSE)
         res_window.iconbitmap('CryptoTech_Logo.ico')
 
-        calc_results = MarginTradingCalcGui.mt_calculation(None, colateral_input, alavancagem_input, target_input,
+        calc_results = MarginTradingCalcGui.mt_calculation(None, colateral_input, leverage_input, target_input,
                                                            stop_input)
 
         top_frame = tk.Frame(res_window)
@@ -129,7 +135,7 @@ class MarginTradingCalcGui:
         leverage_text = tk.Label(leverage_frame, text='Alavancagem (x)', width=18, fg='black', bg='#F0B90B',
                                  font='Gotham 14 bold')
 
-        leverage_res = tk.Label(leverage_frame, text=f'{alavancagem_input}', width=18, bg='white', font='Gotham 13')
+        leverage_res = tk.Label(leverage_frame, text=f'{leverage_input}', width=18, bg='white', font='Gotham 13')
 
         loan_text = tk.Label(loan_frame, text='Valor do Empréstimo', width=18, fg='black', bg='#F0B90B',
                              font='Gotham 14 bold')
@@ -198,6 +204,9 @@ class MarginTradingCalcGui:
         loss_res.pack(side=RIGHT, padx=35, ipady=1)
 
         res_window.mainloop()
+
+
+
 
 
 if __name__ == '__main__':

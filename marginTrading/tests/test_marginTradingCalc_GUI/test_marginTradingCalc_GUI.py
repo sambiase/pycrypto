@@ -15,4 +15,4 @@ def test_input_data():
 
 
 def test_res_window():
-    mtc.MarginTradingCalcGui.res_window(None,100,3,5,10)
+    mtc.MarginTradingCalcGui.res_window(None, 100, 3, 5, 10)
