@@ -13,11 +13,10 @@ class MarginTradingCalcGui:
         """
             Main Window
         """
-        style = Style(theme='darkly')
+        style = Style(theme='superhero')
         self.window = style.master
-        style.configure('TButton', font=('Gotham bold', 18))
+        self.window.configure('TButton', font=('Helvetica', 12))
         self.window.title('MarginTrading Calc v1')
-        self.window.configure(bg='black')
         self.window.geometry('350x440')
         self.window.resizable(FALSE, FALSE)
         self.window.iconbitmap('CryptoTech_Logo.ico')
@@ -48,18 +47,18 @@ class MarginTradingCalcGui:
         """
 
         top_frame = tk.Frame(self.window)
-        colateral_frame = tk.Frame(self.window)
+        colateral_frame = ttk.Frame(self.window)
         leverage_frame = tk.Frame(self.window)
         target_frame = tk.Frame(self.window)
         stop_frame = tk.Frame(self.window)
-        calc_btn_frame = tk.Frame(self.window)
+        calc_btn_frame = ttk.Frame(self.window)
 
-        colateral_text = tk.Label(colateral_frame, text='Valor Colateral', width=18, height=2, fg='black', bg='#F0B90B',
-                                  font='Gotham 15 bold')
-        colateral_input = tk.Entry(colateral_frame, bg='white', font='Gotham 13 ')
+        colateral_text = ttk.Label(colateral_frame, text='Valor Colateral', width=15,
+                                   foreground='white',font='Gotham 15 bold')
+        colateral_input = ttk.Entry(colateral_frame, width=5,font='Gotham 13 ')
 
         leverage_text = tk.Label(leverage_frame, text='Alavancagem (x)', width=18, height=2, fg='black',
-                                 bg='#F0B90B', font='Gotham 15 bold')
+                                 bg='#F0B90B',font='Gotham 15 bold')
         leverage_input = tk.Entry(leverage_frame, bg='white', font='Gotham 13 ')
 
         target_text = tk.Label(target_frame, text='Alvo (%)', width=18, height=2, fg='black', bg='#F0B90B',
@@ -70,8 +69,7 @@ class MarginTradingCalcGui:
                              font='Gotham 15 bold')
         stop_input = tk.Entry(stop_frame, bg='white', font='Gotham 13 ')
 
-
-        calc_btn = ttk.Button(calc_btn_frame, text='Calcular', style='info.TButton', width=40,
+        calc_btn = ttk.Button(calc_btn_frame, text='Calcular', style='link.TButton', width=20,
                              command=lambda: MarginTradingCalcGui.res_window(None, int(colateral_input.get()),
                                                                              int(leverage_input.get()),
                                                                              int(target_input.get()),
@@ -79,9 +77,9 @@ class MarginTradingCalcGui:
 
         top_frame.pack(pady=15)
 
-        colateral_frame.pack(side=TOP, pady=15)
+        colateral_frame.pack(pady=15)
         colateral_text.pack(side=LEFT)
-        colateral_input.pack(side=RIGHT, padx=35, ipady=3)
+        colateral_input.pack(padx=15)
 
         leverage_frame.pack(side=TOP, pady=15)
         leverage_text.pack(side=LEFT)
