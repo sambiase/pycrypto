@@ -5,7 +5,7 @@
     <orderEntry type="jdk" jdkName="Python 3.9 (.venv) (3)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
-  <component name="TestRunnerService">
-    <option name="PROJECT_TEST_RUNNER" value="py.test" />
+  <component name="PackageRequirementsSettings">
+    <option name="requirementsPath" value="E:\14 - Dev\Python\Projetos\pycrypto\Pipfile" />
   </component>
 </module>
