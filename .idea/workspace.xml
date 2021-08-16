@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a4691943-80ae-4f44-b33a-3fff7da9cfd9" name="Changes" comment="" />
+    <list default="true" id="a4691943-80ae-4f44-b33a-3fff7da9cfd9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,12 +51,20 @@
       <option name="project" value="LOCAL" />
       <updated>1629137454307</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Atualizada Config do PyUp">
+      <created>1629138096088</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1629138096088</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added pytest to Pipfile" />
     <MESSAGE value="Changed travis.yml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed travis.yml" />
+    <MESSAGE value="Atualizada Config do PyUp" />
+    <option name="LAST_COMMIT_MESSAGE" value="Atualizada Config do PyUp" />
   </component>
 </project>
