@@ -42,11 +42,19 @@
       <option name="project" value="LOCAL" />
       <updated>1629137008330</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Changed travis.yml">
+      <created>1629137454307</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1629137454307</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added pytest to Pipfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added pytest to Pipfile" />
+    <MESSAGE value="Changed travis.yml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed travis.yml" />
   </component>
 </project>
