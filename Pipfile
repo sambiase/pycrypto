@@ -9,6 +9,7 @@ ttkbootstrap = "*"
 pytest = "*"
 
 [dev-packages]
+sync = "*"
 
 [requires]
 python_version = "3.9"
