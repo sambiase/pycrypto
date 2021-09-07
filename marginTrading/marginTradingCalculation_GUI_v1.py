@@ -69,9 +69,9 @@ class MarginTradingCalcGui:
         calc_btn = tk.Button(calc_btn_frame, text='Calcular', width=10, height=1, fg='black', bg='#F0B90B',
                              font='Gotham 15 bold',
                              command=lambda: MarginTradingCalcGui.verify_input(None, int(colateral_input.get()),
-                                                                             int(leverage_input.get()),
-                                                                             int(target_input.get()),
-                                                                             int(stop_input.get())))
+                                                                               int(leverage_input.get()),
+                                                                               int(target_input.get()),
+                                                                               int(stop_input.get())))
 
         top_frame.pack(pady=15)
 
@@ -98,8 +98,6 @@ class MarginTradingCalcGui:
     @classmethod
     def verify_input(self, colateral_input, leverage_input, target_input, stop_input):
         print(colateral_input)
-
-
 
     def res_window(self, colateral_input, leverage_input, target_input, stop_input):
         """
@@ -204,9 +202,6 @@ class MarginTradingCalcGui:
         loss_res.pack(side=RIGHT, padx=35, ipady=1)
 
         res_window.mainloop()
-
-
-
 
 
 if __name__ == '__main__':

@@ -1,25 +1,28 @@
-'''
+"""
     MarginTrading Calc v1.0
 
     EN - Program used to calculate Margin Trading
     BR - Programa para calcular Margin Trading
 
-'''
+"""
 import os
 
 
 class MarginTradingCalculation:
 
-    def __init__(self):
-        pass
+    def __init__(self, colateral, leverage, target, stop_loss):
+        self.colateral = colateral
+        self.leverage = leverage
+        self.target = target
+        self.stop_loss = stop_loss
 
-    def calculation(self, colateral, leverage, target, stop_loss):
-        borrowed_value = colateral * (leverage - 1)
-        trading_total_value = colateral + borrowed_value
-        liquidation_percentage = (100 / leverage) / 100
-        liquidation_value = (colateral * liquidation_percentage)
-        profit = trading_total_value * (target / 100)
-        loss = trading_total_value * (stop_loss / 100)
+    def calculation(self):
+        borrowed_value = self.colateral * (self.leverage - 1)
+        trading_total_value = self.colateral + borrowed_value
+        liquidation_percentage = (100 / self.leverage) / 100
+        liquidation_value = (self.colateral * liquidation_percentage)
+        profit = trading_total_value * (self.target / 100)
+        loss = trading_total_value * (self.stop_loss / 100)
         return borrowed_value, trading_total_value, liquidation_percentage, liquidation_value, profit, loss
 
 
@@ -32,7 +35,7 @@ class MarginTradingCalculationBR:
         self.stop_loss = float(input('Stop (%): '))
 
     def calc_results_br(self, res):
-        os.system('cls')
+        os.system('clear')
         print(f'\nValor Colateral: {self.colateral}')
         print(f'Alavancagem (x): {self.leverage}')
         print(f'\nValor do Empréstimo: {res[0]}')
@@ -52,7 +55,7 @@ class MarginTradingCalculationEN:
         self.stop_loss = float(input('Stop Loss (%): '))
 
     def calc_results_en(self, res):
-        os.system('cls')
+        os.system('clear')
         print(f'\nColateral Value: {self.colateral}')
         print(f'Leverage: {self.leverage}')
         print(f'Borrowed Value: {res[0]}')
@@ -65,7 +68,7 @@ class MarginTradingCalculationEN:
 
 if __name__ == '__main__':
 
-    os.system('cls')
+    os.system('clear')
     choice = 'S'
 
     while choice == 'S' or choice == 'Y':
@@ -75,44 +78,45 @@ if __name__ == '__main__':
                 exit()
             else:
                 if language == 1 or language == 2:
-                    if language == 1:  # Portugues
+                    if language == 1:  # Portuguese
                         choice = 'S'
                         while choice.upper() == 'S':
                             mt_br = MarginTradingCalculationBR()
-                            res = MarginTradingCalculation.calculation(None, mt_br.colateral, mt_br.leverage,
-                                                                       mt_br.target,
-                                                                       mt_br.stop_loss)
+                            mtcalc = MarginTradingCalculation(mt_br.colateral, mt_br.leverage, mt_br.target,
+                                                              mt_br.stop_loss)
+                            res = mtcalc.calculation()
                             mt_br.calc_results_br(res)
                             choice = str(input('\nCalcular novamente? (S) (N)\n--> '))
-                            os.system('cls')
+                            os.system('clear')
 
-                            if choice.upper() == 'N':
-                                print('\nObrigado por usar o soft MarginTrading :)')
-                            elif choice.upper() == 'S':
+                            if choice.upper() == 'S':
                                 pass
+                            elif choice.upper() == 'N':
+                                print('\nObrigado por usar o software MarginTrading :)')
                             else:
-                                print('\nOpcao Invalida :(')
+                                print('\nOpcao Inválida :(')
 
                     elif language == 2:
                         choice = 'Y'
                         while choice.upper() == 'Y':
                             mt_en = MarginTradingCalculationEN()
-                            res = MarginTradingCalculation.calculation(None, mt_en.colateral, mt_en.leverage,
-                                                                       mt_en.target,
-                                                                       mt_en.stop_loss)
+                            mtcalc = MarginTradingCalculation(mt_en.colateral, mt_en.leverage, mt_en.target,
+                                                              mt_en.stop_loss)
+                            res = mtcalc.calculation()
                             mt_en.calc_results_en(res)
                             choice = str(input('\nCalculate again? (Y) (N)\n--> '))
-                            os.system('cls')
+                            os.system('clear')
 
-                            if choice.upper() == 'N':
-                                print('\nThanks for using MarginTrading :)')
-                            elif choice.upper() == 'Y':
+                            if choice.upper() == 'Y':
                                 pass
+                            elif choice.upper() == 'N':
+                                print('\nThanks for using MarginTrading :)')
                             else:
                                 print('Invalid option :(')
                 else:
-                    os.system('cls')
+                    os.system('clear')
                     print('Opcao Invalida (Invalid option)\n')
+
         except ValueError:
-            os.system('cls')
+            os.system('clear')
             print('Opcao invalida. Por favor tente novamente.\n Invalid option. Please try again.\n')

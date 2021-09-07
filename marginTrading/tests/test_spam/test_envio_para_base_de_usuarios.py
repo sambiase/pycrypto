@@ -21,22 +21,22 @@ from marginTrading.spam.modelos import Usuario
                                  Usuario(nome='Andre', email='andreteste@gmail.com'),
                              ]
                          ])
-def test_qtd_de_spam(sessao,usuarios):
+def test_qtd_de_spam(sessao, usuarios):
     for usuario in usuarios:
         sessao.salvar(usuario)
     enviador = Mock()
-    enviador_de_spam = EnviadorDeSpam(sessao, enviador)    # sessao usada para listar usuarios buscados do BD.
-                                                           # Eviador para enviar os emails
+    enviador_de_spam = EnviadorDeSpam(sessao, enviador)  # sessao usada para listar usuarios buscados do BD.
+    # Eviador para enviar os emails
     enviador_de_spam.enviar_emails('andre@gmail.com.br', 'Teste de Email', 'Este é um teste enviado por email')
-    assert len(usuarios) == enviador.enviar.call_count    # se certificar do numero de emails enviados
+    assert len(usuarios) == enviador.enviar.call_count  # se certificar do numero de emails enviados
 
 
-def test_parametros_de_spam(sessao):                      #conferir todos os dados enviados no envio do email
+def test_parametros_de_spam(sessao):  # conferir todos os dados enviados no envio do email
     usuario = Usuario(nome='Andre', email='andreteste@gmail.com')
     sessao.salvar(usuario)
     enviador = Mock()
-    enviador_de_spam = EnviadorDeSpam(sessao, enviador)    # sessao usada para listar usuarios buscados do BD.
-                                                           # Eviador para enviar os emails
+    enviador_de_spam = EnviadorDeSpam(sessao, enviador)  # sessao usada para listar usuarios buscados do BD.
+    # Eviador para enviar os emails
     enviador_de_spam.enviar_emails('flavio@gmail.com.br', 'Teste de Email', 'Este é um teste enviado por email')
-    enviador.enviar.assert_called_once_with('flavio@gmail.com.br','andreteste@gmail.com', 'Teste de Email',
-                                            'Este é um teste enviado por email')    # se certificar do numero de emails enviados
+    enviador.enviar.assert_called_once_with('flavio@gmail.com.br', 'andreteste@gmail.com', 'Teste de Email',
+                                            'Este é um teste enviado por email')  # se certificar do numero de emails enviados
