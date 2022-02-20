@@ -20,7 +20,7 @@ class MarginTradingCalcGui:
         self.window.title('MarginTrading Calc v1')
         self.window.geometry('340x430')
         self.window.resizable(FALSE, FALSE)
-        self.window.iconbitmap('CryptoTech_Logo.ico')
+        # self.window.iconbitmap('CryptoTech_Logo.ico')
 
     def mt_calculation(self, colateral, leverage, target, stop_loss):
         """
