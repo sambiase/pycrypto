@@ -1,8 +1,12 @@
 # PyCrypto
 
-BR - Programas voltados ao mundo das Criptomoedas
+## What is This?
 
-EN - Software related to the Cripto World
+**PyCrypto** is a Margin Trading Calculator intended mainly to be used with Cryptocurrencies.
+
+
+<br>
+<a href="https://www.linkedin.com/in/sambiase" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=flat&logo=linkedin&logoColor=white" target="_blank"></a>
 
 [![Build Status](https://travis-ci.com/sambiase/pycrypto.svg?branch=main)](https://travis-ci.com/sambiase/pycrypto)
 [![Updates](https://pyup.io/repos/github/sambiase/pycrypto/shield.svg)](https://pyup.io/repos/github/sambiase/pycrypto/)
