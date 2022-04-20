@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 flake8 = "*"
 ttkbootstrap = "*"
-pytest = "*"
+
 
 [dev-packages]
 sync = "*"

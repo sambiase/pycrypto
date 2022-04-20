@@ -16,7 +16,7 @@ class MarginTradingCalcGui:
         self.window.configure(bg='black')
         self.window.geometry('350x440')
         self.window.resizable(FALSE, FALSE)
-        self.window.iconbitmap('cryptotech_logo.ico')
+        self.window.iconbitmap('cryptotechlogo.ico')
 
     def mt_calculation(self, colateral, leverage, target, stop_loss):
         """
@@ -110,7 +110,7 @@ class MarginTradingCalcGui:
         res_window.configure(bg='black')
         res_window.geometry('350x440')
         res_window.resizable(FALSE, FALSE)
-        res_window.iconbitmap('cryptotech_logo.ico')
+        res_window.iconbitmap('cryptotechlogo.ico')
 
         calc_results = MarginTradingCalcGui.mt_calculation(None, colateral_input, leverage_input, target_input,
                                                            stop_input)
