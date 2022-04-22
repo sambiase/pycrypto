@@ -16,6 +16,9 @@ class MarginTradingCalcGui:
         self.window.geometry('340x430')
         self.window.resizable(FALSE, FALSE)
 
+
+
+
     def input_data(self):
         """
             Text & Entry Labels
@@ -52,10 +55,11 @@ class MarginTradingCalcGui:
         stop_input = ttk.Entry(stop_frame, bootstyle=INPUT_MSG)
 
         calc_btn = ttk.Button(calc_btn_frame, text='Calculate', bootstyle=SUCCESS, width=13,
-                              command=lambda: MarginTradingCalcGui.res_window(collateral=int(collateral_input.get()),
-                                                                              leverage=int(leverage_input.get()),
-                                                                              target=int(target_input.get()),
-                                                                              stop=int(stop_input.get())))
+                              command=lambda: MarginTradingCalcGui.calc(collateral=int(collateral_input.get()),
+                                                                        leverage=int(leverage_input.get()),
+                                                                        target=int(target_input.get()),
+                                                                        stop=int(stop_input.get())))
+
 
         top_frame.pack(pady=15)
 
@@ -80,9 +84,7 @@ class MarginTradingCalcGui:
 
         calc_btn.pack()
 
-        mtc.window.mainloop()
-
-    def res_window(**kwargs):
+    def res_window(self):
         """
             Window that shows the results of the Margin Calculation
         :return:
@@ -105,35 +107,31 @@ class MarginTradingCalcGui:
         profit_frame = ttk.Frame(res_window)
         loss_frame = ttk.Frame(res_window)
 
-        loan_value = kwargs.get('collateral') * (kwargs.get('leverage') - 1)
-        trading_total_value = kwargs.get('collateral') + loan_value
-        liquidation_percentage = (100 / kwargs.get('leverage')) / 100
-        liquidation_value = (kwargs.get('collateral') * liquidation_percentage)
-        profit = trading_total_value * (kwargs.get('target') / 100)
-        loss = trading_total_value * (kwargs.get('stop') / 100)
+        results = MarginTradingCalcGui.calc()
+        print(results)
 
         collateral_text = ttk.Label(collateral_frame, text='Collateral Value', width=TEXT_WIDTH, anchor='c',
                                     foreground='black',
                                     background='#F0B90B', font=FONT)
 
-        collateral_res = ttk.Label(collateral_frame, text=kwargs.get('collateral'), width=18, font='Gotham 13')
+        collateral_res = ttk.Label(collateral_frame, text=f'{self.calc_result[0]}', width=18, font='Gotham 13')
 
         leverage_text = ttk.Label(leverage_frame, text='Leverage (x)', width=TEXT_WIDTH, anchor='c', foreground='black',
                                   background='#F0B90B', font=FONT)
 
-        leverage_res = ttk.Label(leverage_frame, text=kwargs.get('leverage'), width=18, font='Gotham 13')
+        leverage_res = ttk.Label(leverage_frame, text=f'test', width=18, font='Gotham 13')
 
         loan_text = ttk.Label(loan_frame, text='Loan Value', width=TEXT_WIDTH, anchor='c', foreground='black',
                               background='#F0B90B', font=FONT)
 
-        loan_res = ttk.Label(loan_frame, text=loan_value, width=18, font='Gotham 13')
+        loan_res = ttk.Label(loan_frame, text=f'test', width=18, font='Gotham 13')
 
         trade_total_value_text = ttk.Label(trade_total_value_frame, text='Trade Total Value', width=TEXT_WIDTH,
                                            anchor='c',
                                            foreground='black',
                                            background='#F0B90B', font=FONT)
 
-        trade_total_value_res = ttk.Label(trade_total_value_frame, text=trading_total_value, width=18,
+        trade_total_value_res = ttk.Label(trade_total_value_frame, text=f'test', width=18,
                                           font='Gotham 13')
 
         liquidation_percent_text = ttk.Label(liquidation_percent_frame, text='Liquidation (%)', width=TEXT_WIDTH,
@@ -141,7 +139,7 @@ class MarginTradingCalcGui:
                                              foreground='black',
                                              background='#F0B90B', font=FONT)
 
-        liquidation_percent_res = ttk.Label(liquidation_percent_frame, text=liquidation_percentage,
+        liquidation_percent_res = ttk.Label(liquidation_percent_frame, text=f'test',
                                             width=18, font='Gotham 13')
 
         liquidation_value_text = ttk.Label(liquidation_value_frame, text='Liquidation Value', width=TEXT_WIDTH,
@@ -149,18 +147,18 @@ class MarginTradingCalcGui:
                                            foreground='black',
                                            background='#F0B90B', font=FONT)
 
-        liquidation_value_res = ttk.Label(liquidation_value_frame, text=liquidation_value, width=18,
+        liquidation_value_res = ttk.Label(liquidation_value_frame, text=f'test', width=18,
                                           font='Gotham 13')
 
         profit_text = ttk.Label(profit_frame, text='Profit', width=TEXT_WIDTH, anchor='c', foreground='black',
                                 background='#F0B90B', font=FONT)
 
-        profit_res = ttk.Label(profit_frame, text=profit, width=18, font='Gotham 13')
+        profit_res = ttk.Label(profit_frame, text=f'test', width=18, font='Gotham 13')
 
         loss_text = ttk.Label(loss_frame, text='Loss', width=TEXT_WIDTH, anchor='c', foreground='black',
                               background='#F0B90B', font=FONT)
 
-        loss_res = ttk.Label(loss_frame, text=loss, width=18, font='Gotham 13')
+        loss_res = ttk.Label(loss_frame, text=f'test', width=18, font='Gotham 13')
 
         top_frame.pack(pady=15)
 
@@ -196,9 +194,11 @@ class MarginTradingCalcGui:
         loss_text.pack(side=LEFT)
         loss_res.pack(side=RIGHT, padx=35, ipady=1)
 
-        res_window.mainloop()
+
+
 
 if __name__ == '__main__':
     mtc = MarginTradingCalcGui()
     mtc.input_data()
+    mtc.window.mainloop()
 
